@@ -1,2 +1,509 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>🔋 連休明けサバイバー！週末までHPを運ぶ『生存戦略』ナビ</title></head><body style="margin: 0px; padding: 20px 12px; background-color: rgb(15, 23, 42); color: rgb(248, 250, 252); font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; display: flex; justify-content: center; box-sizing: border-box;"><script>(function(){ var w = window.open('', '_blank'); if(!w) return; var d = w.document; var head = d.head || d.getElementsByTagName('head')[0] || d.createElement('head'); var body = d.body || d.getElementsByTagName('body')[0] || d.createElement('body'); if(!d.head) d.documentElement.appendChild(head); if(!d.body) d.documentElement.appendChild(body); d.title = '🔋 連休明けサバイバー！週末までHPを運ぶ『生存戦略』ナビ'; var actx = null; function beep(type){ try { if(!actx) { var AC = w.AudioContext || w.webkitAudioContext; if(AC) actx = new AC(); } if(!actx) return; if(actx.state === 'suspended') actx.resume(); var t = actx.currentTime; var osc1 = actx.createOscillator(); var gain1 = actx.createGain(); osc1.connect(gain1); gain1.connect(actx.destination); if(type === 'win') { osc1.type = 'triangle'; osc1.frequency.setValueAtTime(523.25, t); osc1.frequency.setValueAtTime(659.25, t + 0.1); osc1.frequency.setValueAtTime(783.99, t + 0.2); gain1.gain.setValueAtTime(0.15, t); gain1.gain.linearRampToValueAtTime(0.01, t + 0.4); osc1.start(t); osc1.stop(t + 0.4); } else { osc1.type = 'sine'; osc1.frequency.setValueAtTime(587.33, t); osc1.frequency.setValueAtTime(880.00, t + 0.08); gain1.gain.setValueAtTime(0.12, t); gain1.gain.linearRampToValueAtTime(0.01, t + 0.18); osc1.start(t); osc1.stop(t + 0.18); } } catch(e){} } body.style.margin = '0'; body.style.padding = '20px 12px'; body.style.backgroundColor = '#0f172a'; body.style.color = '#f8fafc'; body.style.fontFamily = 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'; body.style.display = 'flex'; body.style.justifyContent = 'center'; body.style.boxSizing = 'border-box'; var card = d.createElement('div'); card.style.width = '100%'; card.style.maxWidth = '680px'; card.style.backgroundColor = '#1e293b'; card.style.border = '1px solid #334155'; card.style.borderRadius = '16px'; card.style.padding = '24px 20px'; card.style.boxSizing = 'border-box'; card.style.boxShadow = '0 10px 25px rgba(0,0,0,0.5)'; body.appendChild(card); var header = d.createElement('header'); header.style.textAlign = 'center'; header.style.marginBottom = '20px'; var title = d.createElement('h1'); title.textContent = '🔋 連休明けサバイバー！週末までHPを運ぶ『生存戦略』ナビ'; title.style.margin = '0 0 6px 0'; title.style.fontSize = '20px'; title.style.fontWeight = '700'; title.style.color = '#38bdf8'; title.style.lineHeight = '1.4'; header.appendChild(title); var subTitle = d.createElement('div'); subTitle.textContent = '※セーブ機能なし。タブを閉じると冒険は終了します'; subTitle.style.fontSize = '12px'; subTitle.style.color = '#94a3b8'; header.appendChild(subTitle); card.appendChild(header); var statusBox = d.createElement('div'); statusBox.style.backgroundColor = '#0f172a'; statusBox.style.border = '1px solid #334155'; statusBox.style.borderRadius = '12px'; statusBox.style.padding = '16px'; statusBox.style.marginBottom = '20px'; var dayLabel = d.createElement('div'); dayLabel.style.fontSize = '15px'; dayLabel.style.fontWeight = '600'; dayLabel.style.color = '#cbd5e1'; dayLabel.style.marginBottom = '10px'; statusBox.appendChild(dayLabel); var hpRow = d.createElement('div'); hpRow.style.display = 'flex'; hpRow.style.justifyContent = 'space-between'; hpRow.style.alignItems = 'baseline'; hpRow.style.marginBottom = '8px'; var hpTextLabel = d.createElement('span'); hpTextLabel.textContent = '残存HP:'; hpTextLabel.style.fontSize = '14px'; hpTextLabel.style.color = '#94a3b8'; hpRow.appendChild(hpTextLabel); var hpVal = d.createElement('span'); hpVal.style.fontSize = '22px'; hpVal.style.fontWeight = '700'; hpRow.appendChild(hpVal); statusBox.appendChild(hpRow); var gaugeTrack = d.createElement('div'); gaugeTrack.style.width = '100%'; gaugeTrack.style.height = '14px'; gaugeTrack.style.backgroundColor = '#334155'; gaugeTrack.style.borderRadius = '7px'; gaugeTrack.style.overflow = 'hidden'; gaugeTrack.style.marginBottom = '8px'; var gaugeFill = d.createElement('div'); gaugeFill.style.height = '100%'; gaugeFill.style.width = '100%'; gaugeFill.style.transition = 'width 0.3s ease, background-color 0.3s ease'; gaugeTrack.appendChild(gaugeFill); statusBox.appendChild(gaugeTrack); var zombieWarning = d.createElement('div'); zombieWarning.style.fontSize = '12px'; zombieWarning.style.color = '#f87171'; zombieWarning.style.fontWeight = '600'; zombieWarning.style.display = 'none'; statusBox.appendChild(zombieWarning); card.appendChild(statusBox); var controlBox = d.createElement('div'); controlBox.style.backgroundColor = '#1e293b'; controlBox.style.border = '1px solid #475569'; controlBox.style.borderRadius = '12px'; controlBox.style.padding = '18px'; controlBox.style.marginBottom = '20px'; card.appendChild(controlBox); var tipBox = d.createElement('div'); tipBox.style.backgroundColor = '#172554'; tipBox.style.border = '1px solid #1e40af'; tipBox.style.borderRadius = '8px'; tipBox.style.padding = '12px 14px'; tipBox.style.marginBottom = '20px'; tipBox.style.fontSize = '13px'; tipBox.style.lineHeight = '1.5'; tipBox.style.color = '#93c5fd'; card.appendChild(tipBox); var logContainer = d.createElement('div'); var logHeader = d.createElement('div'); logHeader.textContent = '📋 行動＆消費履歴'; logHeader.style.fontSize = '14px'; logHeader.style.fontWeight = '600'; logHeader.style.color = '#cbd5e1'; logHeader.style.marginBottom = '8px'; logContainer.appendChild(logHeader); var logList = d.createElement('div'); logList.style.display = 'flex'; logList.style.flexDirection = 'column'; logList.style.gap = '6px'; logContainer.appendChild(logList); card.appendChild(logContainer); var state = { step: 0, holidayDays: 5, hp: 80, maxHp: 80, logs: [] }; var dayNames = [ '連休最終夜 - 初期HPチャージ', 'DAY 1 / 月曜日 - 社会復帰初日（省エネ最優先）', 'DAY 2 / 火曜日 - まだ序盤。HPを守れ', 'DAY 3 / 水曜日 - 週の折り返し地点', 'DAY 4 / 木曜日 - 失速注意の危険ゾーン', 'DAY 5 / 金曜日 - ラストスパート（定時生存）', '🎉 週末到達！ - 5日間の生存リザルト' ]; var dayTips = [ '💡 連休最終日：無理に早く寝ようとして焦るより、リラックスしてHPを満タンにしておきましょう。', '💡 月曜日：エンジン全開は厳禁。今日の目標は「無事に定時を迎えて帰宅すること」だけです。', '💡 火曜日：連休の余韻が消え、現実の重みが乗る日。適度にカフェインや休憩を挟みましょう。', '💡 水曜日：週の折り返し。ここで睡眠不足を重ねると木・金が地獄になります。早めの就寝を。', '💡 木曜日：疲労のピーク。集中力が途切れやすいので、タスクを詰め込まず守りに徹しましょう。', '💡 金曜日：ゴールは目の前！定時退社をキメて、残ったHPで週末のスタートダッシュを飾りましょう。', '🏁 5日間のサバイバル達成：お疲れ様でした！あなたの週末が始まります。' ]; var boosts = [ { label: '☕ カフェイン (-5 HP)', val: 5 }, { label: '🥪 豪華朝食 (-4 HP)', val: 4 }, { label: '🏃 ダッシュ (-2 HP)', val: 2 }, { label: '🧘 無の境地 (-1 HP)', val: 1 } ]; function formatSleep(t) { var h = Math.max(1, 31 - t); var hourStr = t >= 24 ? '深夜 ' + (t - 24) + ':00 (翌日)' : t + ':00'; return hourStr + ' 就寝 ➔ 翌朝7:00起床（睡眠約 ' + h + ' 時間）'; } function updateStatus() { dayLabel.textContent = dayNames[state.step]; hpVal.textContent = state.hp + ' / ' + state.maxHp + ' HP'; var pct = Math.max(0, Math.min(100, Math.round((state.hp / state.maxHp) * 100))); gaugeFill.style.width = pct + '%'; if(state.hp >= state.maxHp * 0.5) { gaugeFill.style.backgroundColor = '#22c55e'; hpVal.style.color = '#4ade80'; } else if(state.hp > 0) { gaugeFill.style.backgroundColor = '#eab308'; hpVal.style.color = '#facc15'; } else { gaugeFill.style.backgroundColor = '#ef4444'; hpVal.style.color = '#f87171'; } if(state.hp <= 0 && state.step > 0 && state.step < 6) { zombieWarning.style.display = 'block'; zombieWarning.textContent = '🔴 HP枯渇中ですが出社は可能です（ゾンビ生存中）'; } else { zombieWarning.style.display = 'none'; } tipBox.textContent = dayTips[state.step]; } function renderLogs() { while(logList.firstChild) { logList.removeChild(logList.firstChild); } if(state.logs.length === 0) { var emptyMsg = d.createElement('div'); emptyMsg.textContent = 'まだ行動履歴はありません。'; emptyMsg.style.fontSize = '12px'; emptyMsg.style.color = '#64748b'; emptyMsg.style.fontStyle = 'italic'; logList.appendChild(emptyMsg); return; } for(var i = state.logs.length - 1; i >= 0; i--) { var item = d.createElement('div'); item.style.backgroundColor = '#0f172a'; item.style.border = '1px solid #334155'; item.style.borderRadius = '6px'; item.style.padding = '8px 12px'; item.style.fontSize = '13px'; item.style.color = '#e2e8f0'; item.textContent = state.logs[i]; logList.appendChild(item); } } function renderControls() { while(controlBox.firstChild) { controlBox.removeChild(controlBox.firstChild); } if(state.step === 0) { var hTitle = d.createElement('div'); hTitle.textContent = '🌴 連休日数の設定'; hTitle.style.fontSize = '14px'; hTitle.style.fontWeight = '600'; hTitle.style.color = '#38bdf8'; hTitle.style.marginBottom = '8px'; controlBox.appendChild(hTitle); var hDesc = d.createElement('div'); hDesc.textContent = '今回の連休は何日間でしたか？（日数が多いほど初期HPが増加）'; hDesc.style.fontSize = '13px'; hDesc.style.color = '#94a3b8'; hDesc.style.marginBottom = '12px'; controlBox.appendChild(hDesc); var hValDisplay = d.createElement('div'); hValDisplay.textContent = state.holidayDays + ' 日間 （初期HP: ' + (50 + state.holidayDays * 6) + ' HP）'; hValDisplay.style.fontSize = '15px'; hValDisplay.style.fontWeight = '700'; hValDisplay.style.color = '#f8fafc'; hValDisplay.style.marginBottom = '8px'; controlBox.appendChild(hValDisplay); var hRange = d.createElement('input'); hRange.type = 'range'; hRange.min = '2'; hRange.max = '14'; hRange.value = '' + state.holidayDays; hRange.style.width = '100%'; hRange.style.marginBottom = '18px'; hRange.style.accentColor = '#38bdf8'; hRange.oninput = function() { state.holidayDays = parseInt(hRange.value, 10); state.hp = 50 + state.holidayDays * 6; state.maxHp = state.hp; hValDisplay.textContent = state.holidayDays + ' 日間 （初期HP: ' + state.hp + ' HP）'; updateStatus(); }; controlBox.appendChild(hRange); var startBtn = d.createElement('button'); startBtn.textContent = '🚀 サバイバル開始（月曜日へ）'; startBtn.style.width = '100%'; startBtn.style.padding = '12px'; startBtn.style.backgroundColor = '#0284c7'; startBtn.style.color = '#ffffff'; startBtn.style.border = 'none'; startBtn.style.borderRadius = '8px'; startBtn.style.fontSize = '15px'; startBtn.style.fontWeight = '700'; startBtn.style.cursor = 'pointer'; startBtn.onclick = function() { beep('next'); state.step = 1; updateStatus(); renderControls(); renderLogs(); }; controlBox.appendChild(startBtn); } else if(state.step >= 1 && state.step <= 5) { var curBedTime = 24; var curBoostIdx = 0; var sleepTitle = d.createElement('div'); sleepTitle.textContent = '🌙 就寝時刻の調整 (翌朝7:00起床)'; sleepTitle.style.fontSize = '14px'; sleepTitle.style.fontWeight = '600'; sleepTitle.style.color = '#38bdf8'; sleepTitle.style.marginBottom = '6px'; controlBox.appendChild(sleepTitle); var sleepInfo = d.createElement('div'); sleepInfo.textContent = formatSleep(curBedTime); sleepInfo.style.fontSize = '13px'; sleepInfo.style.color = '#e2e8f0'; sleepInfo.style.marginBottom = '8px'; controlBox.appendChild(sleepInfo); var sleepSlider = d.createElement('input'); sleepSlider.type = 'range'; sleepSlider.min = '21'; sleepSlider.max = '27'; sleepSlider.value = '' + curBedTime; sleepSlider.style.width = '100%'; sleepSlider.style.marginBottom = '16px'; sleepSlider.style.accentColor = '#38bdf8'; controlBox.appendChild(sleepSlider); var boostTitle = d.createElement('div'); boostTitle.textContent = '⚡ 気休めブースト（HP消費軽減）'; boostTitle.style.fontSize = '14px'; boostTitle.style.fontWeight = '600'; boostTitle.style.color = '#38bdf8'; boostTitle.style.marginBottom = '8px'; controlBox.appendChild(boostTitle); var boostGrid = d.createElement('div'); boostGrid.style.display = 'grid'; boostGrid.style.gridTemplateColumns = 'repeat(2, 1fr)'; boostGrid.style.gap = '8px'; boostGrid.style.marginBottom = '16px'; var boostButtons = []; for(var b = 0; b < boosts.length; b++) { (function(idx){ var bBtn = d.createElement('button'); bBtn.textContent = boosts[idx].label; bBtn.style.padding = '10px 8px'; bBtn.style.fontSize = '13px'; bBtn.style.borderRadius = '6px'; bBtn.style.border = '1px solid #475569'; bBtn.style.cursor = 'pointer'; bBtn.style.backgroundColor = (idx === curBoostIdx) ? '#0284c7' : '#1e293b'; bBtn.style.color = '#ffffff'; bBtn.onclick = function() { curBoostIdx = idx; for(var k = 0; k < boostButtons.length; k++) { boostButtons[k].style.backgroundColor = (k === curBoostIdx) ? '#0284c7' : '#1e293b'; } calcPreview(); }; boostButtons.push(bBtn); boostGrid.appendChild(bBtn); })(b); } controlBox.appendChild(boostGrid); var previewBox = d.createElement('div'); previewBox.style.fontSize = '13px'; previewBox.style.color = '#f59e0b'; previewBox.style.marginBottom = '16px'; previewBox.style.fontWeight = '600'; controlBox.appendChild(previewBox); function calcPreview() { var sHour = Math.max(1, 31 - curBedTime); var cost = 12 + Math.max(0, (8 - sHour) * 4) - boosts[curBoostIdx].val; previewBox.textContent = '⚡ 本日の消費予定HP: -' + cost + ' HP （基本12 + 睡眠不足' + Math.max(0, (8 - sHour) * 4) + ' - ブースト' + boosts[curBoostIdx].val + '）'; } sleepSlider.oninput = function() { curBedTime = parseInt(sleepSlider.value, 10); sleepInfo.textContent = formatSleep(curBedTime); calcPreview(); }; calcPreview(); var actBtn = d.createElement('button'); actBtn.textContent = '🛡%EF%B8%8F 今日を耐える（翌日へ）'; actBtn.style.width = '100%'; actBtn.style.padding = '12px'; actBtn.style.backgroundColor = '#10b981'; actBtn.style.color = '#ffffff'; actBtn.style.border = 'none'; actBtn.style.borderRadius = '8px'; actBtn.style.fontSize = '15px'; actBtn.style.fontWeight = '700'; actBtn.style.cursor = 'pointer'; actBtn.onclick = function() { var sHour = Math.max(1, 31 - curBedTime); var cost = 12 + Math.max(0, (8 - sHour) * 4) - boosts[curBoostIdx].val; state.hp -= cost; var dayShort = ['日','月','火','水','木','金'][state.step]; var logTxt = dayShort + '曜: 睡眠' + sHour + 'h + ' + boosts[curBoostIdx].label.split(' ')[1] + ' ➔ ' + cost + ' HP消費 (残: ' + state.hp + ' HP)'; state.logs.push(logTxt); state.step++; if(state.step === 6) { beep('win'); } else { beep('next'); } updateStatus(); renderControls(); renderLogs(); }; controlBox.appendChild(actBtn); } else if(state.step === 6) { var resBox = d.createElement('div'); resBox.style.textAlign = 'center'; resBox.style.padding = '10px 0'; var resTitle = d.createElement('div'); resTitle.style.fontSize = '18px'; resTitle.style.fontWeight = '700'; resTitle.style.marginBottom = '12px'; var resDesc = d.createElement('div'); resDesc.style.fontSize = '14px'; resDesc.style.lineHeight = '1.6'; resDesc.style.marginBottom = '20px'; if(state.hp >= 25) { resTitle.textContent = '🟢 完全温存勝利！'; resTitle.style.color = '#4ade80'; resDesc.textContent = '驚異のHP温存力です！余力を残して土日を満喫してください。月曜からの綿密な生存戦略が見事に実を結びました。'; } else if(state.hp >= 0) { resTitle.textContent = '🟡 省エネ辛勝！'; resTitle.style.color = '#facc15'; resDesc.textContent = '素晴らしい配分です！省エネでHPを週末まで運び切りました。無理をせず生き残る技術は一流サバイバーの証です。'; } else { resTitle.textContent = '🔴 ゾンビ生存達成！'; resTitle.style.color = '#f87171'; resDesc.textContent = 'お疲れ様でした！HPは枯渇しましたが無事に週末まで生き残りました。出社しただけで満点です。土日は泥のように眠りましょう。'; } resBox.appendChild(resTitle); resBox.appendChild(resDesc); var resetBtn = d.createElement('button'); resetBtn.textContent = '🔄 最初からもう一度遊ぶ'; resetBtn.style.padding = '12px 24px'; resetBtn.style.backgroundColor = '#38bdf8'; resetBtn.style.color = '#0f172a'; resetBtn.style.border = 'none'; resetBtn.style.borderRadius = '8px'; resetBtn.style.fontSize = '15px'; resetBtn.style.fontWeight = '700'; resetBtn.style.cursor = 'pointer'; resetBtn.onclick = function() { beep('next'); state.step = 0; state.holidayDays = 5; state.hp = 80; state.maxHp = 80; state.logs = []; updateStatus(); renderControls(); renderLogs(); }; resBox.appendChild(resetBtn); controlBox.appendChild(resBox); } } updateStatus(); renderControls(); renderLogs();})();void(0);</script><div style="width: 100%; max-width: 680px; background-color: rgb(30, 41, 59); border: 1px solid rgb(51, 65, 85); border-radius: 16px; padding: 24px 20px; box-sizing: border-box; box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 25px;"><header style="text-align: center; margin-bottom: 20px;"><h1 style="margin: 0px 0px 6px; font-size: 20px; font-weight: 700; color: rgb(56, 189, 248); line-height: 1.4;">🔋 連休明けサバイバー！週末までHPを運ぶ『生存戦略』ナビ</h1><div style="font-size: 12px; color: rgb(148, 163, 184);">※セーブ機能なし。タブを閉じると冒険は終了します</div></header><div style="background-color: rgb(15, 23, 42); border: 1px solid rgb(51, 65, 85); border-radius: 12px; padding: 16px; margin-bottom: 20px;"><div style="font-size: 15px; font-weight: 600; color: rgb(203, 213, 225); margin-bottom: 10px;">連休最終夜 - 初期HPチャージ</div><div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;"><span style="font-size: 14px; color: rgb(148, 163, 184);">残存HP:</span><span style="font-size: 22px; font-weight: 700; color: rgb(74, 222, 128);">80 / 80 HP</span></div><div style="width: 100%; height: 14px; background-color: rgb(51, 65, 85); border-radius: 7px; overflow: hidden; margin-bottom: 8px;"><div style="height: 100%; width: 100%; transition: width 0.3s, background-color 0.3s; background-color: rgb(34, 197, 94);"></div></div><div style="font-size: 12px; color: rgb(248, 113, 113); font-weight: 600; display: none;"></div></div><div style="background-color: rgb(30, 41, 59); border: 1px solid rgb(71, 85, 105); border-radius: 12px; padding: 18px; margin-bottom: 20px;"><div style="font-size: 14px; font-weight: 600; color: rgb(56, 189, 248); margin-bottom: 8px;">🌴 連休日数の設定</div><div style="font-size: 13px; color: rgb(148, 163, 184); margin-bottom: 12px;">今回の連休は何日間でしたか？（日数が多いほど初期HPが増加）</div><div style="font-size: 15px; font-weight: 700; color: rgb(248, 250, 252); margin-bottom: 8px;">5 日間 （初期HP: 80 HP）</div><input type="range" min="2" max="14" style="width: 100%; margin-bottom: 18px; accent-color: rgb(56, 189, 248);"><button style="width: 100%; padding: 12px; background-color: rgb(2, 132, 199); color: rgb(255, 255, 255); border-width: medium; border-style: none; border-color: currentcolor; border-image: none; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer;">🚀 サバイバル開始（月曜日へ）</button></div><div style="background-color: rgb(23, 37, 84); border: 1px solid rgb(30, 64, 175); border-radius: 8px; padding: 12px 14px; margin-bottom: 20px; font-size: 13px; line-height: 1.5; color: rgb(147, 197, 253);">💡 連休最終日：無理に早く寝ようとして焦るより、リラックスしてHPを満タンにしておきましょう。</div><div><div style="font-size: 14px; font-weight: 600; color: rgb(203, 213, 225); margin-bottom: 8px;">📋 行動＆消費履歴</div><div style="display: flex; flex-direction: column; gap: 6px;"><div style="font-size: 12px; color: rgb(100, 116, 139); font-style: italic;">まだ行動履歴はありません。</div></div></div></div></body></html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>🔋 連休明けサバイバー！週末までHPを運ぶ『生存戦略』ナビ</title>
+</head>
+<body style="margin: 0px; padding: 20px 12px; background-color: rgb(15, 23, 42); color: rgb(248, 250, 252); font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; display: flex; justify-content: center; box-sizing: border-box;">
+<script>
+(function(){
+  var d = document;
+  var body = d.body;
+
+  var actx = null;
+  function beep(type){
+    try {
+      if(!actx) {
+        var AC = window.AudioContext || window.webkitAudioContext;
+        if(AC) actx = new AC();
+      }
+      if(!actx) return;
+      if(actx.state === 'suspended') actx.resume();
+      var t = actx.currentTime;
+      var osc1 = actx.createOscillator();
+      var gain1 = actx.createGain();
+      osc1.connect(gain1);
+      gain1.connect(actx.destination);
+      if(type === 'win') {
+        osc1.type = 'triangle';
+        osc1.frequency.setValueAtTime(523.25, t);
+        osc1.frequency.setValueAtTime(659.25, t + 0.1);
+        osc1.frequency.setValueAtTime(783.99, t + 0.2);
+        gain1.gain.setValueAtTime(0.15, t);
+        gain1.gain.linearRampToValueAtTime(0.01, t + 0.4);
+        osc1.start(t);
+        osc1.stop(t + 0.4);
+      } else {
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(587.33, t);
+        osc1.frequency.setValueAtTime(880.00, t + 0.08);
+        gain1.gain.setValueAtTime(0.12, t);
+        gain1.gain.linearRampToValueAtTime(0.01, t + 0.18);
+        osc1.start(t);
+        osc1.stop(t + 0.18);
+      }
+    } catch(e){}
+  }
+
+  var card = d.createElement('div');
+  card.style.width = '100%';
+  card.style.maxWidth = '680px';
+  card.style.backgroundColor = '#1e293b';
+  card.style.border = '1px solid #334155';
+  card.style.borderRadius = '16px';
+  card.style.padding = '24px 20px';
+  card.style.boxSizing = 'border-box';
+  card.style.boxShadow = '0 10px 25px rgba(0,0,0,0.5)';
+  body.appendChild(card);
+
+  var header = d.createElement('header');
+  header.style.textAlign = 'center';
+  header.style.marginBottom = '20px';
+
+  var title = d.createElement('h1');
+  title.textContent = '🔋 連休明けサバイバー！週末までHPを運ぶ『生存戦略』ナビ';
+  title.style.margin = '0 0 6px 0';
+  title.style.fontSize = '20px';
+  title.style.fontWeight = '700';
+  title.style.color = '#38bdf8';
+  title.style.lineHeight = '1.4';
+  header.appendChild(title);
+
+  var subTitle = d.createElement('div');
+  subTitle.textContent = '※セーブ機能なし。タブを閉じると冒険は終了します';
+  subTitle.style.fontSize = '12px';
+  subTitle.style.color = '#94a3b8';
+  header.appendChild(subTitle);
+  card.appendChild(header);
+
+  var statusBox = d.createElement('div');
+  statusBox.style.backgroundColor = '#0f172a';
+  statusBox.style.border = '1px solid #334155';
+  statusBox.style.borderRadius = '12px';
+  statusBox.style.padding = '16px';
+  statusBox.style.marginBottom = '20px';
+
+  var dayLabel = d.createElement('div');
+  dayLabel.style.fontSize = '15px';
+  dayLabel.style.fontWeight = '600';
+  dayLabel.style.color = '#cbd5e1';
+  dayLabel.style.marginBottom = '10px';
+  statusBox.appendChild(dayLabel);
+
+  var hpRow = d.createElement('div');
+  hpRow.style.display = 'flex';
+  hpRow.style.justifyContent = 'space-between';
+  hpRow.style.alignItems = 'baseline';
+  hpRow.style.marginBottom = '8px';
+
+  var hpTextLabel = d.createElement('span');
+  hpTextLabel.textContent = '残存HP:';
+  hpTextLabel.style.fontSize = '14px';
+  hpTextLabel.style.color = '#94a3b8';
+  hpRow.appendChild(hpTextLabel);
+
+  var hpVal = d.createElement('span');
+  hpVal.style.fontSize = '22px';
+  hpVal.style.fontWeight = '700';
+  hpRow.appendChild(hpVal);
+  statusBox.appendChild(hpRow);
+
+  var gaugeTrack = d.createElement('div');
+  gaugeTrack.style.width = '100%';
+  gaugeTrack.style.height = '14px';
+  gaugeTrack.style.backgroundColor = '#334155';
+  gaugeTrack.style.borderRadius = '7px';
+  gaugeTrack.style.overflow = 'hidden';
+  gaugeTrack.style.marginBottom = '8px';
+
+  var gaugeFill = d.createElement('div');
+  gaugeFill.style.height = '100%';
+  gaugeFill.style.width = '100%';
+  gaugeFill.style.transition = 'width 0.3s ease, background-color 0.3s ease';
+  gaugeTrack.appendChild(gaugeFill);
+  statusBox.appendChild(gaugeTrack);
+
+  var zombieWarning = d.createElement('div');
+  zombieWarning.style.fontSize = '12px';
+  zombieWarning.style.color = '#f87171';
+  zombieWarning.style.fontWeight = '600';
+  zombieWarning.style.display = 'none';
+  statusBox.appendChild(zombieWarning);
+  card.appendChild(statusBox);
+
+  var controlBox = d.createElement('div');
+  controlBox.style.backgroundColor = '#1e293b';
+  controlBox.style.border = '1px solid #475569';
+  controlBox.style.borderRadius = '12px';
+  controlBox.style.padding = '18px';
+  controlBox.style.marginBottom = '20px';
+  card.appendChild(controlBox);
+
+  var tipBox = d.createElement('div');
+  tipBox.style.backgroundColor = '#172554';
+  tipBox.style.border = '1px solid #1e40af';
+  tipBox.style.borderRadius = '8px';
+  tipBox.style.padding = '12px 14px';
+  tipBox.style.marginBottom = '20px';
+  tipBox.style.fontSize = '13px';
+  tipBox.style.lineHeight = '1.5';
+  tipBox.style.color = '#93c5fd';
+  card.appendChild(tipBox);
+
+  var logContainer = d.createElement('div');
+  var logHeader = d.createElement('div');
+  logHeader.textContent = '📋 行動＆消費履歴';
+  logHeader.style.fontSize = '14px';
+  logHeader.style.fontWeight = '600';
+  logHeader.style.color = '#cbd5e1';
+  logHeader.style.marginBottom = '8px';
+  logContainer.appendChild(logHeader);
+
+  var logList = d.createElement('div');
+  logList.style.display = 'flex';
+  logList.style.flexDirection = 'column';
+  logList.style.gap = '6px';
+  logContainer.appendChild(logList);
+  card.appendChild(logContainer);
+
+  var state = {
+    step: 0,
+    holidayDays: 5,
+    hp: 80,
+    maxHp: 80,
+    logs: []
+  };
+
+  var dayNames = [
+    '連休最終夜 - 初期HPチャージ',
+    'DAY 1 / 月曜日 - 社会復帰初日（省エネ最優先）',
+    'DAY 2 / 火曜日 - まだ序盤。HPを守れ',
+    'DAY 3 / 水曜日 - 週の折り返し地点',
+    'DAY 4 / 木曜日 - 失速注意の危険ゾーン',
+    'DAY 5 / 金曜日 - ラストスパート（定時生存）',
+    '🎉 週末到達！ - 5日間の生存リザルト'
+  ];
+
+  var dayTips = [
+    '💡 連休最終日：無理に早く寝ようとして焦るより、リラックスしてHPを満タンにしておきましょう。',
+    '💡 月曜日：エンジン全開は厳禁。今日の目標は「無事に定時を迎えて帰宅すること」だけです。',
+    '💡 火曜日：連休の余韻が消え、現実の重みが乗る日。適度にカフェインや休憩を挟みましょう。',
+    '💡 水曜日：週の折り返し。ここで睡眠不足を重ねると木・金が地獄になります。早めの就寝を。',
+    '💡 木曜日：疲労のピーク。集中力が途切れやすいので、タスクを詰め込まず守りに徹しましょう。',
+    '💡 金曜日：ゴールは目の前！定時退社をキメて、残ったHPで週末のスタートダッシュを飾りましょう。',
+    '🏁 5日間のサバイバル達成：お疲れ様でした！あなたの週末が始まります。'
+  ];
+
+  var boosts = [
+    { label: '☕ カフェイン (-5 HP)', val: 5 },
+    { label: '🥪 豪華朝食 (-4 HP)', val: 4 },
+    { label: '🏃 ダッシュ (-2 HP)', val: 2 },
+    { label: '🧘 無の境地 (-1 HP)', val: 1 }
+  ];
+
+  function formatSleep(t) {
+    var h = Math.max(1, 31 - t);
+    var hourStr = t >= 24 ? '深夜 ' + (t - 24) + ':00 (翌日)' : t + ':00';
+    return hourStr + ' 就寝 ➔ 翌朝7:00起床（睡眠約 ' + h + ' 時間）';
+  }
+
+  function updateStatus() {
+    dayLabel.textContent = dayNames[state.step];
+    hpVal.textContent = state.hp + ' / ' + state.maxHp + ' HP';
+    var pct = Math.max(0, Math.min(100, Math.round((state.hp / state.maxHp) * 100)));
+    gaugeFill.style.width = pct + '%';
+    if(state.hp >= state.maxHp * 0.5) {
+      gaugeFill.style.backgroundColor = '#22c55e';
+      hpVal.style.color = '#4ade80';
+    } else if(state.hp > 0) {
+      gaugeFill.style.backgroundColor = '#eab308';
+      hpVal.style.color = '#facc15';
+    } else {
+      gaugeFill.style.backgroundColor = '#ef4444';
+      hpVal.style.color = '#f87171';
+    }
+
+    if(state.hp <= 0 && state.step > 0 && state.step < 6) {
+      zombieWarning.style.display = 'block';
+      zombieWarning.textContent = '🔴 HP枯渇中ですが出社は可能です（ゾンビ生存中）';
+    } else {
+      zombieWarning.style.display = 'none';
+    }
+    tipBox.textContent = dayTips[state.step];
+  }
+
+  function renderLogs() {
+    while(logList.firstChild) {
+      logList.removeChild(logList.firstChild);
+    }
+    if(state.logs.length === 0) {
+      var emptyMsg = d.createElement('div');
+      emptyMsg.textContent = 'まだ行動履歴はありません。';
+      emptyMsg.style.fontSize = '12px';
+      emptyMsg.style.color = '#64748b';
+      emptyMsg.style.fontStyle = 'italic';
+      logList.appendChild(emptyMsg);
+      return;
+    }
+    for(var i = state.logs.length - 1; i >= 0; i--) {
+      var item = d.createElement('div');
+      item.style.backgroundColor = '#0f172a';
+      item.style.border = '1px solid #334155';
+      item.style.borderRadius = '6px';
+      item.style.padding = '8px 12px';
+      item.style.fontSize = '13px';
+      item.style.color = '#e2e8f0';
+      item.textContent = state.logs[i];
+      logList.appendChild(item);
+    }
+  }
+
+  function renderControls() {
+    while(controlBox.firstChild) {
+      controlBox.removeChild(controlBox.firstChild);
+    }
+
+    if(state.step === 0) {
+      var hTitle = d.createElement('div');
+      hTitle.textContent = '🌴 連休日数の設定';
+      hTitle.style.fontSize = '14px';
+      hTitle.style.fontWeight = '600';
+      hTitle.style.color = '#38bdf8';
+      hTitle.style.marginBottom = '8px';
+      controlBox.appendChild(hTitle);
+
+      var hDesc = d.createElement('div');
+      hDesc.textContent = '今回の連休は何日間でしたか？（日数が多いほど初期HPが増加）';
+      hDesc.style.fontSize = '13px';
+      hDesc.style.color = '#94a3b8';
+      hDesc.style.marginBottom = '12px';
+      controlBox.appendChild(hDesc);
+
+      var hValDisplay = d.createElement('div');
+      hValDisplay.textContent = state.holidayDays + ' 日間 （初期HP: ' + (50 + state.holidayDays * 6) + ' HP）';
+      hValDisplay.style.fontSize = '15px';
+      hValDisplay.style.fontWeight = '700';
+      hValDisplay.style.color = '#f8fafc';
+      hValDisplay.style.marginBottom = '8px';
+      controlBox.appendChild(hValDisplay);
+
+      var hRange = d.createElement('input');
+      hRange.type = 'range';
+      hRange.min = '2';
+      hRange.max = '14';
+      hRange.value = '' + state.holidayDays;
+      hRange.style.width = '100%';
+      hRange.style.marginBottom = '18px';
+      hRange.style.accentColor = '#38bdf8';
+      hRange.oninput = function() {
+        state.holidayDays = parseInt(hRange.value, 10);
+        state.hp = 50 + state.holidayDays * 6;
+        state.maxHp = state.hp;
+        hValDisplay.textContent = state.holidayDays + ' 日間 （初期HP: ' + state.hp + ' HP）';
+        updateStatus();
+      };
+      controlBox.appendChild(hRange);
+
+      var startBtn = d.createElement('button');
+      startBtn.textContent = '🚀 サバイバル開始（月曜日へ）';
+      startBtn.style.width = '100%';
+      startBtn.style.padding = '12px';
+      startBtn.style.backgroundColor = '#0284c7';
+      startBtn.style.color = '#ffffff';
+      startBtn.style.border = 'none';
+      startBtn.style.borderRadius = '8px';
+      startBtn.style.fontSize = '15px';
+      startBtn.style.fontWeight = '700';
+      startBtn.style.cursor = 'pointer';
+      startBtn.onclick = function() {
+        beep('next');
+        state.step = 1;
+        updateStatus();
+        renderControls();
+        renderLogs();
+      };
+      controlBox.appendChild(startBtn);
+
+    } else if(state.step >= 1 && state.step <= 5) {
+      var curBedTime = 24;
+      var curBoostIdx = 0;
+
+      var sleepTitle = d.createElement('div');
+      sleepTitle.textContent = '🌙 就寝時刻の調整 (翌朝7:00起床)';
+      sleepTitle.style.fontSize = '14px';
+      sleepTitle.style.fontWeight = '600';
+      sleepTitle.style.color = '#38bdf8';
+      sleepTitle.style.marginBottom = '6px';
+      controlBox.appendChild(sleepTitle);
+
+      var sleepInfo = d.createElement('div');
+      sleepInfo.textContent = formatSleep(curBedTime);
+      sleepInfo.style.fontSize = '13px';
+      sleepInfo.style.color = '#e2e8f0';
+      sleepInfo.style.marginBottom = '8px';
+      controlBox.appendChild(sleepInfo);
+
+      var sleepSlider = d.createElement('input');
+      sleepSlider.type = 'range';
+      sleepSlider.min = '21';
+      sleepSlider.max = '27';
+      sleepSlider.value = '' + curBedTime;
+      sleepSlider.style.width = '100%';
+      sleepSlider.style.marginBottom = '16px';
+      sleepSlider.style.accentColor = '#38bdf8';
+      controlBox.appendChild(sleepSlider);
+
+      var boostTitle = d.createElement('div');
+      boostTitle.textContent = '⚡ 気休めブースト（HP消費軽減）';
+      boostTitle.style.fontSize = '14px';
+      boostTitle.style.fontWeight = '600';
+      boostTitle.style.color = '#38bdf8';
+      boostTitle.style.marginBottom = '8px';
+      controlBox.appendChild(boostTitle);
+
+      var boostGrid = d.createElement('div');
+      boostGrid.style.display = 'grid';
+      boostGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+      boostGrid.style.gap = '8px';
+      boostGrid.style.marginBottom = '16px';
+
+      var boostButtons = [];
+      for(var b = 0; b < boosts.length; b++) {
+        (function(idx){
+          var bBtn = d.createElement('button');
+          bBtn.textContent = boosts[idx].label;
+          bBtn.style.padding = '10px 8px';
+          bBtn.style.fontSize = '13px';
+          bBtn.style.borderRadius = '6px';
+          bBtn.style.border = '1px solid #475569';
+          bBtn.style.cursor = 'pointer';
+          bBtn.style.backgroundColor = (idx === curBoostIdx) ? '#0284c7' : '#1e293b';
+          bBtn.style.color = '#ffffff';
+          bBtn.onclick = function() {
+            curBoostIdx = idx;
+            for(var k = 0; k < boostButtons.length; k++) {
+              boostButtons[k].style.backgroundColor = (k === curBoostIdx) ? '#0284c7' : '#1e293b';
+            }
+            calcPreview();
+          };
+          boostButtons.push(bBtn);
+          boostGrid.appendChild(bBtn);
+        })(b);
+      }
+      controlBox.appendChild(boostGrid);
+
+      var previewBox = d.createElement('div');
+      previewBox.style.fontSize = '13px';
+      previewBox.style.color = '#f59e0b';
+      previewBox.style.marginBottom = '16px';
+      previewBox.style.fontWeight = '600';
+      controlBox.appendChild(previewBox);
+
+      function calcPreview() {
+        var sHour = Math.max(1, 31 - curBedTime);
+        var cost = 12 + Math.max(0, (8 - sHour) * 4) - boosts[curBoostIdx].val;
+        previewBox.textContent = '⚡ 本日の消費予定HP: -' + cost + ' HP （基本12 + 睡眠不足' + Math.max(0, (8 - sHour) * 4) + ' - ブースト' + boosts[curBoostIdx].val + '）';
+      }
+
+      sleepSlider.oninput = function() {
+        curBedTime = parseInt(sleepSlider.value, 10);
+        sleepInfo.textContent = formatSleep(curBedTime);
+        calcPreview();
+      };
+      calcPreview();
+
+      var actBtn = d.createElement('button');
+      actBtn.textContent = '🛡️ 今日を耐える（翌日へ）';
+      actBtn.style.width = '100%';
+      actBtn.style.padding = '12px';
+      actBtn.style.backgroundColor = '#10b981';
+      actBtn.style.color = '#ffffff';
+      actBtn.style.border = 'none';
+      actBtn.style.borderRadius = '8px';
+      actBtn.style.fontSize = '15px';
+      actBtn.style.fontWeight = '700';
+      actBtn.style.cursor = 'pointer';
+      actBtn.onclick = function() {
+        var sHour = Math.max(1, 31 - curBedTime);
+        var cost = 12 + Math.max(0, (8 - sHour) * 4) - boosts[curBoostIdx].val;
+        state.hp -= cost;
+        var dayShort = ['日','月','火','水','木','金'][state.step];
+        var logTxt = dayShort + '曜: 睡眠' + sHour + 'h + ' + boosts[curBoostIdx].label.split(' ')[1] + ' ➔ ' + cost + ' HP消費 (残: ' + state.hp + ' HP)';
+        state.logs.push(logTxt);
+        state.step++;
+        if(state.step === 6) {
+          beep('win');
+        } else {
+          beep('next');
+        }
+        updateStatus();
+        renderControls();
+        renderLogs();
+      };
+      controlBox.appendChild(actBtn);
+
+    } else if(state.step === 6) {
+      var resBox = d.createElement('div');
+      resBox.style.textAlign = 'center';
+      resBox.style.padding = '10px 0';
+
+      var resTitle = d.createElement('div');
+      resTitle.style.fontSize = '18px';
+      resTitle.style.fontWeight = '700';
+      resTitle.style.marginBottom = '12px';
+
+      var resDesc = d.createElement('div');
+      resDesc.style.fontSize = '14px';
+      resDesc.style.lineHeight = '1.6';
+      resDesc.style.marginBottom = '20px';
+
+      if(state.hp >= 25) {
+        resTitle.textContent = '🟢 完全温存勝利！';
+        resTitle.style.color = '#4ade80';
+        resDesc.textContent = '驚異のHP温存力です！余力を残して土日を満喫してください。月曜からの綿密な生存戦略が見事に実を結びました。';
+      } else if(state.hp >= 0) {
+        resTitle.textContent = '🟡 省エネ辛勝！';
+        resTitle.style.color = '#facc15';
+        resDesc.textContent = '素晴らしい配分です！省エネでHPを週末まで運び切りました。無理をせず生き残る技術は一流サバイバーの証です。';
+      } else {
+        resTitle.textContent = '🔴 ゾンビ生存達成！';
+        resTitle.style.color = '#f87171';
+        resDesc.textContent = 'お疲れ様でした！HPは枯渇しましたが無事に週末まで生き残りました。出社しただけで満点です。土日は泥のように眠りましょう。';
+      }
+
+      resBox.appendChild(resTitle);
+      resBox.appendChild(resDesc);
+
+      var resetBtn = d.createElement('button');
+      resetBtn.textContent = '🔄 最初からもう一度遊ぶ';
+      resetBtn.style.padding = '12px 24px';
+      resetBtn.style.backgroundColor = '#38bdf8';
+      resetBtn.style.color = '#0f172a';
+      resetBtn.style.border = 'none';
+      resetBtn.style.borderRadius = '8px';
+      resetBtn.style.fontSize = '15px';
+      resetBtn.style.fontWeight = '700';
+      resetBtn.style.cursor = 'pointer';
+      resetBtn.onclick = function() {
+        beep('next');
+        state.step = 0;
+        state.holidayDays = 5;
+        state.hp = 80;
+        state.maxHp = 80;
+        state.logs = [];
+        updateStatus();
+        renderControls();
+        renderLogs();
+      };
+      resBox.appendChild(resetBtn);
+      controlBox.appendChild(resBox);
+    }
+  }
+
+  updateStatus();
+  renderControls();
+  renderLogs();
+})();
+</script>
+</body>
+</html>
