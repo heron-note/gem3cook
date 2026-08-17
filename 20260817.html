@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>🧠 うなずき共振ナビ</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<body style="margin: 0; padding: 20px 12px; background-color: #0f172a; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; display: flex; justify-content: center; box-sizing: border-box;">
+
+  <div style="width: 100%; max-width: 680px; background-color: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 24px 20px; box-sizing: border-box; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);">
+    <!-- ヘッダー -->
+    <div style="margin-bottom: 20px; text-align: center;">
+      <div style="color: #38bdf8; font-size: 22px; font-weight: bold; letter-spacing: 0.05em;">🧠 うなずき共振ナビ</div>
+      <div style="color: #94a3b8; font-size: 12px; margin-top: 4px;">会議中の脳内エントロピー冷却 ＆ 聞いてる感偽装シミュレーター</div>
+    </div>
+
+    <!-- 入力コントロール -->
+    <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+      <!-- 話者タイプ切り替え -->
+      <div>
+        <div style="font-size: 13px; font-weight: 600; color: #cbd5e1; margin-bottom: 8px;">🎙️ 話者タイプ（強制加振源）</div>
+        <div id="spk-group" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+          <button type="button" data-freq="1.8" style="padding: 10px 4px; border-radius: 8px; border: 1px solid #475569; background-color: #334155; color: #f8fafc; font-size: 12px; font-weight: bold; cursor: pointer; transition: 0.15s;">🏃‍♂️ 早口 (1.8Hz)</button>
+          <button type="button" data-freq="0.9" style="padding: 10px 4px; border-radius: 8px; border: 1px solid #38bdf8; background-color: #0284c7; color: #f8fafc; font-size: 12px; font-weight: bold; cursor: pointer; transition: 0.15s;">📊 標準 (0.9Hz)</button>
+          <button type="button" data-freq="0.4" style="padding: 10px 4px; border-radius: 8px; border: 1px solid #475569; background-color: #334155; color: #f8fafc; font-size: 12px; font-weight: bold; cursor: pointer; transition: 0.15s;">🐢 長話 (0.4Hz)</button>
+        </div>
+      </div>
+
+      <!-- 首の脱力レベル -->
+      <div>
+        <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: #cbd5e1; margin-bottom: 6px;">
+          <span>🫠 首の脱力レベル（固有振動チューニング）</span>
+          <span id="txt-neck" style="color: #38bdf8;">5 Lv</span>
+        </div>
+        <input type="range" id="slider-neck" min="1" max="10" value="5" style="width: 100%; cursor: pointer;">
+      </div>
+
+      <!-- 会議の残り時間 -->
+      <div>
+        <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: #cbd5e1; margin-bottom: 6px;">
+          <span>⏳ 会議の残り予定時間（エントロピー蓄積耐性）</span>
+          <span id="txt-time" style="color: #38bdf8;">45 分</span>
+        </div>
+        <input type="range" id="slider-time" min="15" max="90" value="45" style="width: 100%; cursor: pointer;">
+      </div>
+    </div>
+
+    <!-- 出力パネル -->
+    <div style="background-color: #0f172a; border: 1px solid #334155; border-radius: 12px; padding: 18px; margin-bottom: 20px;">
+      <!-- メイン共鳴度 -->
+      <div style="text-align: center; padding-bottom: 16px; border-bottom: 1px solid #1e293b;">
+        <div style="font-size: 13px; color: #94a3b8;">うなずき共鳴度</div>
+        <div id="res-val" style="font-size: 40px; font-weight: 800; line-height: 1.2; margin-top: 4px; color: #4ade80;">-- %</div>
+      </div>
+
+      <!-- サブ指標グリッド -->
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 14px;">
+        <div style="background-color: #1e293b; padding: 10px 12px; border-radius: 8px; border: 1px solid #334155;">
+          <div style="font-size: 11px; color: #94a3b8;">📹 聞いてる感偽装指数</div>
+          <div id="cam-val" style="font-size: 16px; font-weight: bold; margin-top: 4px; color: #f8fafc;">-- %</div>
+        </div>
+        <div style="background-color: #1e293b; padding: 10px 12px; border-radius: 8px; border: 1px solid #334155;">
+          <div style="font-size: 11px; color: #94a3b8;">🧠 脳の理解度（危険度）</div>
+          <div id="brain-val" style="font-size: 16px; font-weight: bold; margin-top: 4px; color: #4ade80;">-- %</div>
+        </div>
+        <div style="background-color: #1e293b; padding: 10px 12px; border-radius: 8px; border: 1px solid #334155;">
+          <div style="font-size: 11px; color: #94a3b8;">⚙️ 首の稼働モード</div>
+          <div id="mode-val" style="font-size: 16px; font-weight: bold; margin-top: 4px; color: #4ade80;">--</div>
+        </div>
+        <div style="background-color: #1e293b; padding: 10px 12px; border-radius: 8px; border: 1px solid #334155;">
+          <div style="font-size: 11px; color: #94a3b8;">💤 寝落ち(舟漕ぎ)危険度</div>
+          <div id="sleep-val" style="font-size: 16px; font-weight: bold; margin-top: 4px; color: #38bdf8;">-- %</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 処方箋ボックス -->
+    <div id="rx-box" style="padding: 14px 16px; border-radius: 10px; background-color: #1e293b; border: 1px solid #22c55e; font-size: 13px; line-height: 1.6; margin-bottom: 16px; color: #bbf7d0;">
+      --
+    </div>
+
+    <!-- フッター -->
+    <div style="font-size: 11px; color: #64748b; text-align: center; line-height: 1.4;">
+      ※本ツールは物理学を会議サバイバル用途に大胆に誤用しています。話の内容に対する責任は一切負いません。
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var actx = null;
+      function beep(f, t, dura) {
+        try {
+          if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+          var o = actx.createOscillator();
+          var g = actx.createGain();
+          o.type = t || 'sine';
+          o.frequency.value = f || 880;
+          g.gain.setValueAtTime(0.05, actx.currentTime);
+          g.gain.exponentialRampToValueAtTime(0.0001, actx.currentTime + dura);
+          o.connect(g);
+          g.connect(actx.destination);
+          o.start();
+          o.stop(actx.currentTime + dura);
+        } catch (e) {}
+      }
+
+      var spkFreq = 0.9;
+      var neckLv = 5;
+      var remTime = 45;
+
+      var spkBtns = document.querySelectorAll('#spk-group button');
+      var sliderNeck = document.getElementById('slider-neck');
+      var sliderTime = document.getElementById('slider-time');
+      var txtNeck = document.getElementById('txt-neck');
+      var txtTime = document.getElementById('txt-time');
+
+      var heroVal = document.getElementById('res-val');
+      var vCam = document.getElementById('cam-val');
+      var vBrain = document.getElementById('brain-val');
+      var vMode = document.getElementById('mode-val');
+      var vSleep = document.getElementById('sleep-val');
+      var rxBox = document.getElementById('rx-box');
+
+      spkBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          spkFreq = parseFloat(btn.getAttribute('data-freq'));
+          spkBtns.forEach(function (b) {
+            var f = parseFloat(b.getAttribute('data-freq'));
+            b.style.backgroundColor = f === spkFreq ? '#0284c7' : '#334155';
+            b.style.borderColor = f === spkFreq ? '#38bdf8' : '#475569';
+          });
+          beep(660, 'triangle', 0.08);
+          setTimeout(function () { beep(880, 'triangle', 0.08); }, 60);
+          calc();
+        });
+      });
+
+      sliderNeck.addEventListener('input', function (e) {
+        neckLv = parseFloat(e.target.value);
+        txtNeck.textContent = neckLv + ' Lv';
+        beep(440 + neckLv * 40, 'sine', 0.04);
+        calc();
+      });
+
+      sliderTime.addEventListener('input', function (e) {
+        remTime = parseFloat(e.target.value);
+        txtTime.textContent = remTime + ' 分';
+        beep(300 + remTime * 5, 'sine', 0.04);
+        calc();
+      });
+
+      function calc() {
+        var f0 = neckLv * 0.18;
+        var df = Math.abs(f0 - spkFreq);
+        var res = Math.max(5, Math.min(99, Math.round(100 - df * 60)));
+        var disguise = Math.round(60 + res * 0.85);
+        var brain = Math.max(2, Math.round(100 - res * 0.96));
+        var sleep = Math.max(2, Math.round((remTime / 90) * (brain * 0.8)));
+
+        heroVal.textContent = res + ' %';
+
+        if (res >= 80) {
+          heroVal.style.color = '#4ade80';
+          vMode.textContent = '🟢 完全共振（自動運転）';
+          vMode.style.color = '#4ade80';
+          rxBox.style.borderColor = '#22c55e';
+          rxBox.style.color = '#bbf7d0';
+          rxBox.textContent = '【状態：神がかり的偽装】脳の理解度は極限まで遮断され、受動的慣性だけで首が稼働中。思考を完全に放棄しているため脳内CPUは冷え切っており、寝落ちの心配すらありません。';
+        } else if (res >= 45) {
+          heroVal.style.color = '#facc15';
+          vMode.textContent = '🟡 部分共振（半自動）';
+          vMode.style.color = '#facc15';
+          rxBox.style.borderColor = '#eab308';
+          rxBox.style.color = '#fef08a';
+          rxBox.textContent = '【状態：やや危険】たまに話の中身が耳に入り、脳が無駄に糖分を消費しています。もう少し首の力を抜いて完全に思考を停止させてください。';
+        } else {
+          heroVal.style.color = '#f87171';
+          vMode.textContent = '🔴 共振失敗（熱暴走警報）';
+          vMode.style.color = '#f87171';
+          rxBox.style.borderColor = '#ef4444';
+          rxBox.style.color = '#fecaca';
+          rxBox.textContent = '【警告：理解の危機】話者のリズムと不一致！自分の意思で話を聞いてしまっているため脳内CPUが熱暴走中。あと数分で強制シャットダウン（爆睡）します。適当にメモを取るフリをしてください。';
+        }
+
+        vCam.textContent = disguise + ' %';
+        vBrain.textContent = brain + ' %';
+        vBrain.style.color = brain > 50 ? '#f87171' : '#4ade80';
+        vSleep.textContent = sleep + ' %';
+        vSleep.style.color = sleep > 50 ? '#f87171' : '#38bdf8';
+      }
+
+      calc();
+    })();
+  </script>
+</body>
+</html>
