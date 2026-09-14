@@ -29,26 +29,134 @@
     body.appendChild(card);
     
     var state = { i1: 0, i2: 0, i3: 0 };
-    var list1 = ['暑すぎる', '寝不足だ', '洗濯物', '腹減った', '二度寝して', '財布見る', '夏休み', '冷房が', 'やる気ゼロ', '通知鳴る', '月曜日', '腹下す', '朝が来た', 'アイス買う', '定時前', '猫がいる'];
-    var list2 = ['今日も一日', '何も進まず', 'アイスを食べて', '買うもの忘れ', '画面見つめて', '宿題たまり', '床で寝落ちし', 'ため息ひとつ', '無限に眠く', '現実逃避', 'SNS見て', '予定を忘れ', '時計二度見し', '座ったままの', 'YouTube見て', '意識が飛びて'];
-    var list3 = ['日が暮れる', 'また明日', '金がない', '米を炊く', '知らんけど', '風流よ', 'もう寝よう', '汗だくに', '夢の中', '腹が鳴る', 'まあいいか', '時を待つ', '立ちすくむ', '夜が来る', '空を見る', '生き延びる'];
+
+    var list1 = [
+      '暑すぎる',
+      '寝不足だ',
+      '洗濯物',
+      '腹減った',
+      '二度寝して',
+      '財布見る',
+      '夏休み',
+      '冷房が',
+      'やる気ゼロ',
+      '通知鳴る',
+      '月曜日',
+      '腹下す',
+      '朝が来た',
+      'アイス買う',
+      '定時前',
+      '猫がいる',
+      '秋の風',
+      '栗を食う',
+      '月を見る',
+      '長袖だ',
+      '秋の空',
+      '冬が来た',
+      '寒すぎる',
+      'こたつ出す',
+      '鍋を食う',
+      'みかん食う',
+      '春が来た',
+      '桜咲く',
+      '花粉飛ぶ',
+      '春眠す',
+      '新年度',
+      '春の風'
+    ];
+
+    var list2 = [
+      '今日も一日',
+      '何も進まず',
+      'アイスを食べて',
+      '買うもの忘れ',
+      '画面見つめて',
+      '宿題たまり',
+      '床で寝落ちし',
+      'ため息ひとつ',
+      '無限に眠く',
+      '現実逃避',
+      'SNS見て',
+      '予定を忘れ',
+      '時計二度見し',
+      '座ったままの',
+      'YouTube見て',
+      '意識が飛びて',
+      '秋風に吹かれ',
+      '月を眺めて',
+      '食欲止まらず',
+      '長袖を着て',
+      '虫の声聞き',
+      '布団にくるまり',
+      'こたつで寝落ち',
+      'みかんをむいて',
+      '鍋をつついて',
+      '暖房つけて',
+      '春風に吹かれ',
+      '桜を眺めて',
+      '花粉に負けて',
+      '布団から出ず',
+      '新年度きて',
+      '眠気に負けて'
+    ];
+
+    var list3 = [
+      '日が暮れる',
+      'また明日',
+      '金がない',
+      '米を炊く',
+      '知らんけど',
+      '風流よ',
+      'もう寝よう',
+      '汗だくに',
+      '夢の中',
+      '腹が鳴る',
+      'まあいいか',
+      '時を待つ',
+      '立ちすくむ',
+      '夜が来る',
+      '空を見る',
+      '生き延びる',
+      '秋の夜',
+      '月明かり',
+      '食欲の秋',
+      '冬眠する',
+      '鍋を食う',
+      '春眠す',
+      '花粉症',
+      '桜散る',
+      '春の朝',
+      'また寝よう',
+      '風流よ',
+      '生き延びる'
+    ];
+
     var comments = [
       '【日常の真理】ただの現実逃避が、言葉の力で見事な侘び寂びへと昇華されています。',
       '【圧倒的共感】誰もが胸に秘めた現代人のやるせなさを的確に捉えた秀作です。',
       '【風流の極み】だらけた日常の中にひらめく、一握の雅を感じさせます。',
       '【悟りの境地】抗えぬ欲求と現実を受け入れた、潔くも深い一句です。',
       '【名人の一撃】夏の暑さと気だるさが、見事なリズムで調和しています。',
-      '【無常の響き】飾らぬ本音のリアルが心に染み入る、令和のサマーアンセム。'
+      '【無常の響き】飾らぬ本音のリアルが心に染み入る、令和のサマーアンセム。',
+      '【秋の風情】日常のだらけ具合に秋の気配が加わり、妙に風流な一句となっています。',
+      '【食欲の真理】秋の味覚に抗えない人間の本能が、見事に五七五へと昇華されています。',
+      '【冬の現実】寒さから逃げたいという切実な思いが、静かな一句に仕上がっています。',
+      '【こたつの境地】動かないという強い意志が、冬の季節感と見事に融合しています。',
+      '【春の無常】桜や春風の華やかさとは裏腹に、相変わらず何も進んでいない秀作です。',
+      '【花粉の真理】春の訪れを喜ぶ間もなく、現代人の鼻腔が季節の到来を告げています。'
     ];
     
     var titleBox = d.createElement('div');
     titleBox.style.cssText = 'text-align:center;display:flex;flex-direction:column;gap:4px;';
+    
     var title = d.createElement('div');
     title.textContent = '🍵 今日の5・7・5ガチャ';
     title.style.cssText = 'color:#38bdf8;font-size:20px;font-weight:bold;text-align:center;';
+    
     var subtitle = d.createElement('div');
     subtitle.textContent = '日常のやるせなさを雅（みやび）に変換する俳句メーカー';
     subtitle.style.cssText = 'color:#94a3b8;font-size:12px;text-align:center;';
+    
     titleBox.appendChild(title);
     titleBox.appendChild(subtitle);
     card.appendChild(titleBox);
@@ -59,14 +167,18 @@
     
     var row1 = d.createElement('div');
     row1.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:8px;';
+    
     var btnL1 = d.createElement('button');
     btnL1.textContent = '◀';
     btnL1.style.cssText = 'background:#1e293b;border:1px solid #475569;color:#94a3b8;border-radius:6px;width:36px;height:36px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;';
+    
     var txt1 = d.createElement('div');
     txt1.style.cssText = 'flex:1;text-align:center;font-size:22px;font-weight:bold;color:#fef08a;letter-spacing:2px;cursor:pointer;';
+    
     var btnR1 = d.createElement('button');
     btnR1.textContent = '▶';
     btnR1.style.cssText = 'background:#1e293b;border:1px solid #475569;color:#94a3b8;border-radius:6px;width:36px;height:36px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;';
+    
     row1.appendChild(btnL1);
     row1.appendChild(txt1);
     row1.appendChild(btnR1);
@@ -74,14 +186,18 @@
     
     var row2 = d.createElement('div');
     row2.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:8px;';
+    
     var btnL2 = d.createElement('button');
     btnL2.textContent = '◀';
     btnL2.style.cssText = 'background:#1e293b;border:1px solid #475569;color:#94a3b8;border-radius:6px;width:36px;height:36px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;';
+    
     var txt2 = d.createElement('div');
     txt2.style.cssText = 'flex:1;text-align:center;font-size:22px;font-weight:bold;color:#fef08a;letter-spacing:2px;cursor:pointer;';
+    
     var btnR2 = d.createElement('button');
     btnR2.textContent = '▶';
     btnR2.style.cssText = 'background:#1e293b;border:1px solid #475569;color:#94a3b8;border-radius:6px;width:36px;height:36px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;';
+    
     row2.appendChild(btnL2);
     row2.appendChild(txt2);
     row2.appendChild(btnR2);
@@ -89,14 +205,18 @@
     
     var row3 = d.createElement('div');
     row3.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:8px;';
+    
     var btnL3 = d.createElement('button');
     btnL3.textContent = '◀';
     btnL3.style.cssText = 'background:#1e293b;border:1px solid #475569;color:#94a3b8;border-radius:6px;width:36px;height:36px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;';
+    
     var txt3 = d.createElement('div');
     txt3.style.cssText = 'flex:1;text-align:center;font-size:22px;font-weight:bold;color:#fef08a;letter-spacing:2px;cursor:pointer;';
+    
     var btnR3 = d.createElement('button');
     btnR3.textContent = '▶';
     btnR3.style.cssText = 'background:#1e293b;border:1px solid #475569;color:#94a3b8;border-radius:6px;width:36px;height:36px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;';
+    
     row3.appendChild(btnL3);
     row3.appendChild(txt3);
     row3.appendChild(btnR3);
@@ -104,10 +224,13 @@
     
     var infoBox = d.createElement('div');
     infoBox.style.cssText = 'background:#0f172a;border:1px solid #334155;border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:6px;';
+    
     var scoreBadge = d.createElement('div');
     scoreBadge.style.cssText = 'color:#38bdf8;font-size:13px;font-weight:bold;';
+    
     var commentBox = d.createElement('div');
     commentBox.style.cssText = 'color:#cbd5e1;font-size:13px;line-height:1.5;';
+    
     infoBox.appendChild(scoreBadge);
     infoBox.appendChild(commentBox);
     card.appendChild(infoBox);
